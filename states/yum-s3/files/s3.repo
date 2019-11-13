@@ -1,5 +1,5 @@
 [s3-repo]
 name=S3-repo
-baseurl=https://s3.amazonaws.com/MY_BUCKET_NAME
+baseurl=https://s3.amazonaws.com/pdg-test-bucket
 enabled=0
 gpgcheck=0
