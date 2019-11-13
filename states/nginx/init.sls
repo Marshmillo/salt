@@ -1,15 +1,15 @@
 include:
   - jenkins
 
-nginx:
-  pkg.installed: []
+install_nginx:
+   cmd.run:
+      - name: "sudo amazon-linux-extras install -y nginx1.12"
 
+nginx:
   service.running:
-    - enable: True
-    - reload: True
-    - require:
-      - pkg: nginx
-      - service: jenkins
+     - name: nginx
+     - enable: True
+     - reload: True
 
 /etc/nginx/conf.d/jenkins.conf:
   file.managed:
