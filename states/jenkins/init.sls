@@ -4,10 +4,12 @@ include:
 jenkins_prereq:
   pkg.installed:
     - pkgs:
-      - java-1.7.0-openjdk
+      - java-1.8.0-openjdk-devel
       - gcc
       - make
       - createrepo
+      - jq
+      - httpd-tools
 
 jenkins:
   pkg.installed:
