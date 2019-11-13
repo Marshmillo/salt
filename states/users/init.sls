@@ -1,18 +1,20 @@
-veselin:
+devops:
   user.present:
-    - fullname: Veselin Kantsev
-    - uid: {{ salt['pillar.get']('users:veselin:uid') }}
-    - password: {{ salt['pillar.get']('users:veselin:password') }}
+    - fullname: DevOps Engineering
+    - uid: {{ salt['pillar.get']('users:devops:uid') }}
+    - password: {{ salt['pillar.get']('users:devops:password') }}
     - groups:
       - wheel
 
   ssh_auth.present:
-    - user: veselin
-    - source: salt://users/files/veselin.pub
+    - user: devops
+    - source: salt://users/files/id_rsa.pub
     - require:
-      - user: veselin
+      - user: devops
 
 sudoers:
   file.managed:
-   - name: /etc/sudoers.d/wheel
-   - contents: '%wheel  ALL=(ALL)  ALL'
+   - name: /etc/sudoers
+   - text: |
+        ### Edit group wheel
+         %wheel ALL=(ALL)       NOPASSWD: ALL
